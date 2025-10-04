@@ -1,6 +1,6 @@
 # 🎮 PokeConsole [WIP]
 
-Open Source Project about a console-based **C# RPG** featuring a real-time **ATB (Active Time Battle)** combat system that rewards strategic timing and resource management.
+Open Source Project about a console-based **C# RPG** featuring a real-time **ATB (Active Time Battle)** combat system that rewards strategic timing and resource management.f
 
 ---
 
