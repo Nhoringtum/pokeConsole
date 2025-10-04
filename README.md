@@ -14,7 +14,7 @@ PokeConsole is a technical exploration of **modular architecture** and **state-d
 - 🧪 **Unit tests** covering edge-case combat interactions  
 - 💾 **Binary save system** ensuring reliable and efficient persistence  
 
-> ✨ Built entirely in **C# / .NET 8**, focusing on **clarity, reusability, and system separation**.
+> ✨ Built entirely in **C# / .NET 9**, focusing on **clarity, reusability, and system separation**.
 
 ---
 
@@ -57,7 +57,7 @@ dotnet run
 
 ## 🧠 Technical Highlights
 
-🧱 Built with .NET 8 / C# — leveraging modern language features (records, async/await, pattern matching) for clean, concise code
+🧱 Built with .NET 9 / C# — leveraging modern language features (records, async/await, pattern matching) for clean, concise code
 
 🔧 Dependency Injection — enables modular, testable systems and decoupled architecture (easy to add AI, items, etc.)
 
