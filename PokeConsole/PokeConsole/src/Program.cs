@@ -1,2 +1,14 @@
 ﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+
+using PokeConsole.src;
+
+class Program
+{
+    static void Main()
+    {
+        GameManager.Instance.Init();
+        GameManager.Instance.Update();
+        //gameManager.Update();
+    }
+}
+
