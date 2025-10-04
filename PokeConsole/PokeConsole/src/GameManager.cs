@@ -10,8 +10,13 @@ namespace PokeConsole.src
     {
         private GameManager() 
         {
-            Console.WriteLine("aaaaa");
+            stateManager.ChangeState(worldState);
         }
+
+        StateManager stateManager = new StateManager();
+        WorldState worldState = new WorldState();
+        MainMenuState mainMenuState = new MainMenuState();
+        FightState fightState = new FightState();
 
         private static GameManager _instance;
         public static GameManager Instance 
@@ -28,14 +33,13 @@ namespace PokeConsole.src
 
         public void Init()
         {
-            throw new NotImplementedException();
         }
 
         public void Update()
         {
             while (true)
             {
-                Console.WriteLine("Hello");
+                stateManager.Update();
             }
         }
 

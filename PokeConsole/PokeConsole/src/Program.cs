@@ -8,7 +8,6 @@ class Program
     {
         GameManager.Instance.Init();
         GameManager.Instance.Update();
-        //gameManager.Update();
     }
 }
 
