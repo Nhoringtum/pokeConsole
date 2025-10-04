@@ -7,4 +7,18 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Remove="assets - Copier\**" />
+    <EmbeddedResource Remove="assets - Copier\**" />
+    <None Remove="assets - Copier\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\UnitTest\UnitTest.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="assets\" />
+  </ItemGroup>
+
 </Project>
