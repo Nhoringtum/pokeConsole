@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace PokeConsole.src
 {
-    internal abstract class GameStateBase
+    internal abstract class IGameStateBase
     {
-        public GameStateBase() { }
+        public IGameStateBase() { }
 
         public abstract GlobalState StateID { get; }
 

@@ -15,7 +15,7 @@ namespace PokeConsole.src
 
     internal class StateManager
     {
-        private GameStateBase _currentState;
+        private IGameStateBase _currentState;
 
         private static readonly Dictionary<GlobalState, HashSet<GlobalState>> AllowedTransitions = new()
         {
@@ -24,7 +24,7 @@ namespace PokeConsole.src
             { GlobalState.FIGHT, new() { GlobalState.WORLD } },
         };
 
-        public void ChangeState(GameStateBase newState)
+        public void ChangeState(IGameStateBase newState)
         {
             if (_currentState != null && _currentState.StateID == newState.StateID)
                 return;

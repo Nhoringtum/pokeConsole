@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace PokeConsole.src
 {
-    internal class FightState : GameStateBase
+    internal class FightState : IGameStateBase
     {
         private enum SubState
         {
