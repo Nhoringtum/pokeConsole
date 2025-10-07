@@ -17,8 +17,13 @@ class Program
         Console.WriteLine();
         Console.WriteLine(entityManager.GetSpecificFighter(EntityManager.entityType.SORCERER)?.ElemType);
         Console.WriteLine(entityManager.GetSpecificFighter(EntityManager.entityType.SORCERER)?.EntityType);
-        Console.WriteLine(entityManager.GetSpecificFighter(EntityManager.entityType.SORCERER)?.StatsManager.GetActualStat(ActualStat.ACTUAL_ATTACK));
-        Console.WriteLine(entityManager.GetSpecificFighter(EntityManager.entityType.KNIGHT)?.StatsManager.GetActualStat(ActualStat.ACTUAL_ATTACK));
+        //Console.WriteLine(entityManager.GetSpecificFighter(EntityManager.entityType.SORCERER)?.StatsManager.GetActualStat(ActualStat.ACTUAL_ATTACK));
+        //Console.WriteLine(entityManager.GetSpecificFighter(EntityManager.entityType.KNIGHT)?.StatsManager.GetActualStat(ActualStat.ACTUAL_ATTACK));
+
+        Fighter? sorcerer = entityManager.GetSpecificFighter(EntityManager.entityType.SORCERER);
+        sorcerer.SkillsManager.LearnNewSkill(sorcerer, 1);
+        Console.WriteLine(sorcerer.ListLearnedSkill[0].Name);
+
         //GameManager.Instance.Init();
         //GameManager.Instance.Update();
         //gameManager.Update();

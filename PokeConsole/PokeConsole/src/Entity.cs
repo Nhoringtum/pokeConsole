@@ -26,7 +26,8 @@ namespace PokeConsole.src
 
         public entityType EntityType { get; private set;}
 
-        //public bool IsActive { get; private set; } = true;
+        
+        public bool IsActive { get; private set; } = true;
         //public void Deactivate() => IsActive = false;
         //public void Activate() => IsActive = true;
     }
