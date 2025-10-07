@@ -18,15 +18,15 @@ namespace PokeConsole.src
             //ListLearnedSkill = new List<Skill>();
 
             //SkillManager = new SkillManager();
-            //StatsManager = new StatsManager(entityType);
+            StatsManager = new StatsManager(entityType);
             ElemType = elementType;
             IsDead = false;
         }
 
-        //public StatsManager StatsManager { get; private set; }
+        public StatsManager StatsManager { get; private set; }
         //public SkillManager SkillManager { get; private set; }
 
-        public bool IsDead { get; private set; }
+        public bool IsDead { get; set; }
         
         public ElementType ElemType { get; private set; }
     }

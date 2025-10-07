@@ -17,6 +17,8 @@ class Program
         Console.WriteLine();
         Console.WriteLine(entityManager.GetSpecificFighter(EntityManager.entityType.SORCERER)?.ElemType);
         Console.WriteLine(entityManager.GetSpecificFighter(EntityManager.entityType.SORCERER)?.EntityType);
+        Console.WriteLine(entityManager.GetSpecificFighter(EntityManager.entityType.SORCERER)?.StatsManager.GetActualStat(ActualStat.ACTUAL_ATTACK));
+        Console.WriteLine(entityManager.GetSpecificFighter(EntityManager.entityType.KNIGHT)?.StatsManager.GetActualStat(ActualStat.ACTUAL_ATTACK));
         //GameManager.Instance.Init();
         //GameManager.Instance.Update();
         //gameManager.Update();
