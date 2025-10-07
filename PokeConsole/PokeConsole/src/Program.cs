@@ -2,31 +2,14 @@
 
 using PokeConsole.src;
 using System.Numerics;
+using static PokeConsole.src.SkillsManager;
 
 class Program
 {
     static void Main()
     {
-        EntityManager entityManager = new EntityManager();
-
-        entityManager.CreateFighter(EntityManager.entityType.SORCERER, "uif", new Vector2(10, 10), new Vector2(1, 1), ElementType.ELECTRIC);
-        entityManager.CreateFighter(EntityManager.entityType.KNIGHT, "fff", new Vector2(10, 10), new Vector2(1, 1), ElementType.WATER);
-        entityManager.CreateFighter(EntityManager.entityType.KNIGHT, "d", new Vector2(10, 10), new Vector2(1, 1), ElementType.WATER);
-        Console.WriteLine(entityManager.GetSpecificFighter(EntityManager.entityType.KNIGHT)?.ElemType);
-        Console.WriteLine(entityManager.GetSpecificFighter(EntityManager.entityType.KNIGHT)?.EntityType);
-        Console.WriteLine();
-        Console.WriteLine(entityManager.GetSpecificFighter(EntityManager.entityType.SORCERER)?.ElemType);
-        Console.WriteLine(entityManager.GetSpecificFighter(EntityManager.entityType.SORCERER)?.EntityType);
-        //Console.WriteLine(entityManager.GetSpecificFighter(EntityManager.entityType.SORCERER)?.StatsManager.GetActualStat(ActualStat.ACTUAL_ATTACK));
-        //Console.WriteLine(entityManager.GetSpecificFighter(EntityManager.entityType.KNIGHT)?.StatsManager.GetActualStat(ActualStat.ACTUAL_ATTACK));
-
-        Fighter? sorcerer = entityManager.GetSpecificFighter(EntityManager.entityType.SORCERER);
-        sorcerer.SkillsManager.LearnNewSkill(sorcerer, 1);
-        Console.WriteLine(sorcerer.ListLearnedSkill[0].Name);
-
-        //GameManager.Instance.Init();
-        //GameManager.Instance.Update();
-        //gameManager.Update();
+        GameManager.Instance.Init();
+        GameManager.Instance.Update();
     }
 }
 

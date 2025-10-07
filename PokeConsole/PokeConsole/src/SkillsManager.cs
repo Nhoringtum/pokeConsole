@@ -77,11 +77,15 @@ namespace PokeConsole.src
             AllSkills.Add(_basicAttackEnnemy);
         }
 
-        public void LearnNewSkill(Fighter fighter, int allSkillIndex)
+        public void LearnNewSkill(Fighter fighter, SkillName allSkillEnum)
         {
             if (fighter is Fighter == false) return;
 
-            fighter.ListLearnedSkill.Add(AllSkills[allSkillIndex]);
+            //magic number, will be replaced
+            if (fighter.ListLearnedSkill.Count > 4)
+                DeleteSkill(fighter, 0);
+
+            fighter.ListLearnedSkill.Add(AllSkills[(int)allSkillEnum]);
         }
 
         public void DeleteSkill(Fighter fighter, int index)
