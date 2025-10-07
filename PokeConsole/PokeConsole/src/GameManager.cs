@@ -47,5 +47,10 @@ namespace PokeConsole.src
         {
             throw new NotImplementedException();
         }
+
+        public void PlayerWin()
+        {
+            Console.WriteLine("YEY !");
+        }
     }
 }
