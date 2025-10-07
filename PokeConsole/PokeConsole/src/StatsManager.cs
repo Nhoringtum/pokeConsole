@@ -38,7 +38,7 @@ namespace PokeConsole.src
     {
         //private string _path = System.IO.Path.GetDirectoryName(Assembly.GetEntryAssembly()?.Location) + "StatData.json";
 
-
+        public TypeComparator TypeComparator { get; private set; } = new();
 
         private Dictionary<MaxStatType, float> _maxStats;
         public float GetMaxStat(MaxStatType stat) => _maxStats[stat];
@@ -107,11 +107,14 @@ namespace PokeConsole.src
             _actualStats[ActualStat.ACTUAL_XP] = 0;
         }
 
-        public void TakeDamage(float damage)
+        public void TakeDamage(Fighter target, float damage, ElementType skillElem)
         {
             if (damage <= 0) throw new ArgumentOutOfRangeException("Null damage or negatif damage isn't allowed here", nameof(damage));
 
-            if (damage > _maxStats[MaxStatType.HP]) damage = _maxStats[MaxStatType.HP];
+            float multiplierElem = TypeComparator.GetMultiplierByCompareType(skillElem, target.ElemType);
+            damage *= multiplierElem;
+
+            if (damage > _actualStats[ActualStat.ACTUAL_HP]) damage = _actualStats[ActualStat.ACTUAL_HP];
 
             _actualStats[ActualStat.ACTUAL_HP] -= damage;
 
@@ -125,7 +128,6 @@ namespace PokeConsole.src
                 {
                     EntityManager.Instance.GetSpecificFighter(_entType).IsDead = true;
                 }
-
             }
         }
 

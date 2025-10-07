@@ -10,11 +10,25 @@ namespace PokeConsole.src
 {
     internal class Fighter : Entity
     {
-        public List<Skill> ListLearnedSkill { get; set; }
+        public enum SkillSlot
+        {
+            FIRST,
+            SECOND, 
+            THIRD,
+            FOURTH
+        }
+
+        public enum Team
+        {
+            PLAYER,
+            OPPONENT
+        }
+
+        public Dictionary<SkillsManager.SkillName, Skill> ListLearnedSkill { get; set; }
 
         public Fighter(int id, string name, Vector2 pos, Vector2 scale, entityType entityType, ElementType elementType) : base(id, name, pos, scale, entityType) 
         {
-            ListLearnedSkill = new List<Skill>();
+            ListLearnedSkill = new Dictionary<SkillsManager.SkillName, Skill>();
 
             SkillsManager = new SkillsManager();
             StatsManager = new StatsManager(entityType);
