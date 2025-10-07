@@ -26,7 +26,7 @@ namespace PokeConsole.src
         //public StatsManager StatsManager { get; private set; }
         //public SkillManager SkillManager { get; private set; }
 
-        public bool IsDead { get; set; }
+        public bool IsDead { get; private set; }
         
         public ElementType ElemType { get; private set; }
     }
