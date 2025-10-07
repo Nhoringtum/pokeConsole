@@ -18,31 +18,13 @@ namespace PokeConsole.src
             ElemType = elemType;
         }
 
-        public SkillsManager.SkillName Name
-        {
-            get; private set;
-        }
+        public SkillsManager.SkillName Name {get; private set;}
 
-        public string Description
-        {
-            get; private set;
-        }
-        //public int Level { get; set; }
-        public int Power
-        {
-            get; private set;
-        }
-        public int Accuracy
-        {
-            get; private set;
-        }
-        public int ManaCost
-        {
-            get; private set;
-        }
-        public ElementType ElemType
-        {
-            get; private set;
-        }
+        public string Description {get; private set;}
+
+        public int Power {get; private set;}
+        public int Accuracy {get; private set;}
+        public int ManaCost {get; private set;}
+        public ElementType ElemType {get; private set;}
     }
 }

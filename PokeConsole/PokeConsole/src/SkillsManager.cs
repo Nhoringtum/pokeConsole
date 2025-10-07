@@ -11,7 +11,7 @@ namespace PokeConsole.src
     {
         public SkillsManager()
         {
-            rand = new Random();
+            _rand = new Random();
             AllSkills = new List<Skill>();
 
             InitAllSkills();
@@ -49,7 +49,7 @@ namespace PokeConsole.src
 
         public TypeComparator TypeComparator { get; private set; } = new();
 
-        System.Random rand;
+        System.Random _rand;
 
         //require rework with SkillsData.json
         private void InitAllSkills()
@@ -180,7 +180,7 @@ namespace PokeConsole.src
             {
                 if (casterskill.Name == (SkillName)index)
                 {
-                    if (casterskill.Accuracy < rand.Next(101))
+                    if (casterskill.Accuracy < _rand.Next(101))
                     {
                         //Console.WriteLine($"{caster.Name} Miss {caster.ListLearnedSkill[index].Name} !");
                         return false; //Gros L

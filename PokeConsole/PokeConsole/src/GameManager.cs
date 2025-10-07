@@ -8,15 +8,19 @@ namespace PokeConsole.src
 {
     internal class GameManager
     {
+        StateManager _stateManager;
+        WorldState _worldState;
+        MainMenuState _mainMenuState; 
+        FightState _fightState;
+
         private GameManager() 
         {
-            stateManager.ChangeState(worldState);
-        }
+            Init();
 
-        StateManager stateManager = new StateManager();
-        WorldState worldState = new WorldState();
-        MainMenuState mainMenuState = new MainMenuState();
-        FightState fightState = new FightState();
+            if (_stateManager == null || _worldState == null) return;
+
+            _stateManager?.ChangeState(_worldState);
+        }
 
         private static GameManager _instance;
         public static GameManager Instance 
@@ -33,13 +37,17 @@ namespace PokeConsole.src
 
         public void Init()
         {
+            _stateManager = new StateManager();
+            _worldState = new WorldState();
+            _mainMenuState = new MainMenuState();
+            _fightState = new FightState();
         }
 
         public void Update()
         {
             while (true)
             {
-                stateManager.Update();
+                _stateManager.Update();
             }
         }
 

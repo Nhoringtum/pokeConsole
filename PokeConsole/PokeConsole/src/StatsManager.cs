@@ -38,6 +38,19 @@ namespace PokeConsole.src
     {
         //private string _path = System.IO.Path.GetDirectoryName(Assembly.GetEntryAssembly()?.Location) + "StatData.json";
 
+
+
+        private Dictionary<MaxStatType, float> _maxStats;
+        public float GetMaxStat(MaxStatType stat) => _maxStats[stat];
+        public void SetMaxStat(MaxStatType stat, float value) => _maxStats[stat] = value;
+
+        private Dictionary<ActualStat, float> _actualStats;
+
+        public float GetActualStat(ActualStat stat) => _actualStats[stat];
+        public void SetActualStat(ActualStat stat, float value) => _actualStats[stat] = value;
+
+        private EntityManager.entityType _entType;
+
         public StatsManager(EntityManager.entityType entType)
         {
             _maxStats = new Dictionary<MaxStatType, float>();
@@ -45,21 +58,6 @@ namespace PokeConsole.src
 
             InitStatByEntityType(entType);
         }
-
-
-        private Dictionary<MaxStatType, float> _maxStats;
-        public float GetMaxStat(MaxStatType stat) => _maxStats[stat];
-        public void SetMaxStat(MaxStatType stat, float value) => _maxStats[stat] = value;
-
-
-        private Dictionary<ActualStat, float> _actualStats;
-
-        public float GetActualStat(ActualStat stat) => _actualStats[stat];
-        public void SetActualStat(ActualStat stat, float value) => _actualStats[stat] = value;
-
-
-        private EntityManager.entityType _entType;
-
 
         //require rework with StatData.json
         public void InitStatByEntityType(EntityManager.entityType entType)
