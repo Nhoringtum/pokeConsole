@@ -14,7 +14,7 @@ namespace PokeConsole.src
             PLAYER,
             SORCERER,
             KNIGHT,
-            ENNEMY,
+            ENEMY,
             PNJ,
             ITEM,
             PROPS
@@ -35,16 +35,10 @@ namespace PokeConsole.src
 
         private entityType _entityType;
         public entityType GetEntityType() => _entityType;
-        public int FighterOnEntityDictionary
-        {
-            get; set;
-        }
 
         public EntityManager()
         {
             _entityList = new Dictionary<entityType, Entity>();
-
-            CreateFighter(entityType.KNIGHT, "BoJack knightman", new Vector2(5, 5), new Vector2(1, 1), ElementType.FIRE);
         }
 
         private Dictionary<entityType, Entity> _entityList;
@@ -58,9 +52,10 @@ namespace PokeConsole.src
 
         public void CreateFighter(entityType entityTypeEnum, string name, Vector2 pos, Vector2 scale, ElementType elemType)
         {
-            //Entity newEntity = new Entity(_entityList.Count, name, pos, scale, elemType);
+            if (_entityList.ContainsKey(entityTypeEnum)) return;
 
-            //_entityList.Add(elemType, newEntity);
+            Entity newEntity = new Fighter(_entityList.Count, name, pos, scale, entityTypeEnum, elemType);
+            _entityList.Add(entityTypeEnum, newEntity);
         }
 
         public Dictionary<entityType, Entity> GetEntityDictionary()
@@ -73,14 +68,16 @@ namespace PokeConsole.src
             throw new NotImplementedException();
         }
 
-        //public Fighter GetSpecificFighter(entityType entityType)
-        //{
-        //    if (_entityList.TryGetValue(entityType, out var knight))
-        //        return knight as Fighter;
-        //    if (_entityList.TryGetValue(entityType, out var sorcerer))
-        //        return sorcerer as Fighter;
-        //    if (_entityList.TryGetValue(entityType, out var enemy))
-        //        return enemy as Fighter;
-        //}
+        public Fighter? GetSpecificFighter(entityType entityType)
+        {
+            if (_entityList.TryGetValue(entityType, out var knight))
+                return knight as Fighter;
+            else if (_entityList.TryGetValue(entityType, out var sorcerer))
+                return sorcerer as Fighter;
+            else if (_entityList.TryGetValue(entityType, out var enemy))
+                return enemy as Fighter;
+
+            return null;
+        }
     }
 }
