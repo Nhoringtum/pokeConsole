@@ -66,7 +66,7 @@ namespace PokeConsole.src
             if (fighter is Fighter == false) return;
 
             //magic number, will be replaced
-            if (fighter.ListLearnedSkill.Count > 4)
+            if (fighter.ListLearnedSkill.Count > 3)
             {
                 DeleteSkill(fighter, 0);
                 fighter.ListLearnedSkill.Add(allSkillEnum, _trucDeOuf);
@@ -101,44 +101,15 @@ namespace PokeConsole.src
                 case SkillName.BASICATTACK:
                     BasicAttack(caster, target);
                     break;
+                case SkillName.ELEMENTATTACK:
+                    ElementAttack(caster, target, ElementType.GROUND); //Need to have another menu to select element
+                    break;
                 default:
                     break;
             }
 
             caster.StatsManager.SetActualStat(ActualStat.ACTUAL_MANA, - skill.ManaCost);
         }
-
-        //public void EnnemyUseSkill(Fighter caster, Fighter target)
-        //{
-        //    switch (TypeComparator.GetWeaknessType(target.ElemType))
-        //    {
-        //        case ElementType.FIRE:
-        //            if (CheckEnoughMana(caster, target, (int)SkillName.WATERATTACK) == false
-        //                || CheckEnoughAccuracy(caster, target, (int)SkillName.WATERATTACK) == false) return;
-        //            WaterAttack(caster, target);
-        //            break;
-        //        case ElementType.GRASS:
-        //            if (CheckEnoughMana(caster, target, (int)SkillName.FIREATTACK) == false
-        //                || CheckEnoughAccuracy(caster, target, (int)SkillName.FIREATTACK) == false) return;
-        //            FireAttack(caster, target);
-        //            break;
-        //        case ElementType.GROUND:
-        //            if (CheckEnoughMana(caster, target, (int)SkillName.ELECTRICATTACK) == false
-        //                || CheckEnoughAccuracy(caster, target, (int)SkillName.ELECTRICATTACK) == false) return;
-        //            ElectricAttack(caster, target);
-        //            break;
-        //        case ElementType.ELECTRIC:
-        //            if (CheckEnoughMana(caster, target, (int)SkillName.GROUNDATTACK) == false
-        //                || CheckEnoughAccuracy(caster, target, (int)SkillName.GROUNDATTACK) == false) return;
-        //            GroundAttack(caster, target);
-        //            break;
-        //        case ElementType.WATER:
-        //            if (CheckEnoughMana(caster, target, (int)SkillName.GRASSATTACK) == false
-        //                || CheckEnoughAccuracy(caster, target, (int)SkillName.GRASSATTACK) == false) return;
-        //            GrassAttack(caster, target);
-        //            break;
-        //    }
-        //}
 
         private bool CheckEnoughMana(Fighter caster, Fighter target, SkillName skillName)
         {
